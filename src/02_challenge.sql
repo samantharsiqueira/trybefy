@@ -1,32 +1,36 @@
+USE Trybefy;
+
 CREATE TABLE plans (
-  id INT AUTO-INCREMENT PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
-  price FLOAT(5, 2) NOT NULL,
+  price FLOAT(5, 2) NOT NULL
 );
 
+INSERT INTO plans (name, price)
+VALUES
+    ('Anual', 39.90),
+    ('Mensal', 5.90),
+    ('Trimestral', 19.90);
+
 CREATE TABLE users (
-    id AUTO-INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) UNIQUE NOT NULL,
     birthday DATE NOT NULL,
     active BOOLEAN NOT NULL DEFAULT TRUE,
-    plan_id INT NOT NULL FOREIGN KEY (plan_id) REFERENCES plans(id),
+    plan_id INT NOT NULL,
+    FOREIGN KEY (plan_id) REFERENCES plans(id)
+);
 
-)INSERT INTO plans (id,name,price)
-    VALUES
-        (1,"Anual",39.90),
-        (2,"Mensal",5.90),
-        (3,"Trimestral",19.90);
-
-INSERT INTO users (id,full_name,email,birthday,active,plan_id)
-    VALUES
-        (1,"Pedro","pedro@trybefy.com","1990-01-01",true,1),
-        (2,"Camila","camila@trybefy.com","1988-12-01",true,1),
-        (3,"Guilherme","guilherme@trybefy.com","1988-12-01",true,2),
-        (4,"Andressa","andressa@trybefy.com","1984-07-20",false,3),
-        (5,"Luís","luis@trybefy.com","2000-01-01",true,2),
-        (6,"Cássia","cassia@trybefy.com","1995-12-01",true,1),
-        (7,"Simone","simone@trybefy.com","1988-12-01",true,1),
-        (8,"Rogério","rogerio@trybefy.com","1979-12-01",true,3),
-        (9,"Júlio","julio@trybefy.com","1994-06-20 ",false,2),
-        (10,"Melissa","melissa@trybefy.com","1997-04-11",true,2);
+INSERT INTO users (full_name, email, birthday, active, plan_id)
+VALUES
+    ('Pedro', 'pedro@trybefy.com', '1990-01-01', true, 1),
+    ('Camila', 'camila@trybefy.com', '1988-12-01', true, 1),
+    ('Guilherme', 'guilherme@trybefy.com', '1988-12-01', true, 2),
+    ('Andressa', 'andressa@trybefy.com', '1984-07-20', false, 3),
+    ('Luís', 'luis@trybefy.com', '2000-01-01', true, 2),
+    ('Cássia', 'cassia@trybefy.com', '1995-12-01', true, 1),
+    ('Simone', 'simone@trybefy.com', '1988-12-01', true, 1),
+    ('Rogério', 'rogerio@trybefy.com', '1979-12-01', true, 3),
+    ('Júlio', 'julio@trybefy.com', '1994-06-20', false, 2),
+    ('Melissa', 'melissa@trybefy.com', '1997-04-11', true, 2);

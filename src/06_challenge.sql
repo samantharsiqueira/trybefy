@@ -1,3 +1,3 @@
-UPDATE users WHERE id=4 SET active=1;
-UPDATE users WHERE id=8 SET active=0;
-UPDATE users WHERE id=2 SET plan.id=2;
+UPDATE users SET active=1 WHERE id=4;
+UPDATE users SET active=0 WHERE id=8;
+UPDATE users SET plan_id=2 WHERE id=2;
