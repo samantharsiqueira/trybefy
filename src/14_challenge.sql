@@ -1,6 +1,8 @@
 SELECT
-artists.name as 'Artista',
-albums.title as 'Álbuns'
-from artists
-JOIN albums ON artist.ArtistId = album.artist_id
-GROUP BY artists.name ASC;
+    artists.name AS 'Artista',
+  GROUP_CONCAT(albums.title SEPARATOR ',') AS 'Álbuns'
+FROM artists
+JOIN albums ON artists.id = albums.artist_id
+GROUP BY artists.name
+ORDER BY artists.name ASC;
+

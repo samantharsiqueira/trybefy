@@ -12,13 +12,13 @@ CREATE TABLE albums (
     FOREIGN KEY (artist_id) REFERENCES artists(id)
 );
 
-INSERT INTO artists (id,name,nationality)
+INSERT INTO artists (name,nationality)
     VALUES
-        (1,"Michael Jackson","USA"),
-        (2,"Nina Simone","USA"),
-        (3,"The Beatles","UK"),
-        (4,"BTS","KOR"),
-        (5,"Rita Lee","BRA"),
+        ("Michael Jackson","USA"),
+        ("Nina Simone","USA"),
+        ("The Beatles","UK"),
+        ("BTS","KOR"),
+        ("Rita Lee","BRA");
      
 INSERT INTO albums (title,release_year,artist_id)
         VALUES

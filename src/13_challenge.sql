@@ -1,7 +1,8 @@
 SELECT
-name as 'Artista',
-COUNT(title) as 'Quantidade de álbuns'
-FROM albums
-JOIN artists ON albums.artist_id = artists.id
+    name AS 'Artista'
+FROM artists
+JOIN albums ON artists.id = albums.artist_id
 GROUP BY name
-ORDER BY COUNT(title) DESC, name ASC;
+HAVING COUNT(*) >= 3
+ORDER BY name ASC;
+
