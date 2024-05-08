@@ -2,7 +2,8 @@
 SELECT
 title as 'Título'
 FROM songs
-WHERE album_id (
+WHERE album_id = (
     SELECT id FROM albums
-    WHERE title = 'Thriller');
+    WHERE title = 'Thriller'
+    )
 ORDER BY title ASC;
